@@ -6,44 +6,8 @@ local opts = { noremap = true, silent = true }
 keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "pindah ke atas" })
 keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "pindah ke bawah" })
 
--- Remap for floating terminal with transparent background
--- Function to open floating terminal with transparency and advanced customization
-local function open_floating_terminal()
-	local term_opts = {
-		direction = "float",
-		float_opts = {
-			border = "single", -- You can use 'single', 'double', 'shadow', 'none', etc.
-			width = math.floor(vim.o.columns * 0.9), -- 90% of the width of the editor
-			height = math.floor(vim.o.lines * 0.8), -- 80% of the height of the editor
-			winblend = 20, -- Initial transparency level (0-100)
-		},
-	}
-
-	-- Open ToggleTerm with the specified options
-	vim.cmd("ToggleTerm direction=float")
-
-	-- Get current terminal window ID
-	local term_win = vim.api.nvim_get_current_win()
-
-	-- Set the window transparency (winblend)
-	vim.api.nvim_win_set_option(term_win, "winblend", term_opts.float_opts.winblend)
-
-	-- Set border options dynamically (you can customize border style and sizes here)
-	vim.api.nvim_win_set_config(term_win, {
-		relative = "editor",
-		row = math.floor((vim.o.lines - term_opts.float_opts.height) / 2), -- Centered vertically
-		col = math.floor((vim.o.columns - term_opts.float_opts.width) / 2), -- Centered horizontally
-		width = term_opts.float_opts.width,
-		height = term_opts.float_opts.height,
-		border = term_opts.float_opts.border, -- Set border style here
-	})
-end
-
--- Keymap to toggle the floating terminal with advanced options
-vim.keymap.set("n", "<leader>tt", function()
-	open_floating_terminal()
-end, { noremap = true, silent = true })
-
+keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { noremap = true, silent = true })
+keymap.set("n", "<leader>tr", ":2ToggleTerm direction=float<CR>", { noremap = true, silent = true })
 keymap.set("n", "<leader>th", ":ToggleTerm size=10 direction=horizontal<CR>", { noremap = true, silent = true })
 
 keymap.set("n", "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term" })
