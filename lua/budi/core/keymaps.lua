@@ -2,13 +2,19 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
-
+keymap.set("i", "<F2>", "<?= ?> <Left><Left><left>", { noremap = true, silent = true })
+keymap.set("i", "<F3>", "<?php ?> <Left><Left><left>", { noremap = true, silent = true })
 keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "pindah ke atas" })
 keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "pindah ke bawah" })
 
-keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { noremap = true, silent = true })
-keymap.set("n", "<leader>tr", ":2ToggleTerm direction=float<CR>", { noremap = true, silent = true })
-keymap.set("n", "<leader>th", ":ToggleTerm size=10 direction=horizontal<CR>", { noremap = true, silent = true })
+keymap.set("n", "<leader>tt", ":ToggleTerm direction=float<CR>", { noremap = true, silent = true, desc = "Floating" })
+keymap.set("n", "<leader>tr", ":2ToggleTerm direction=float<CR>", { noremap = true, silent = true, desc = "2Floating" })
+keymap.set(
+	"n",
+	"<leader>th",
+	":ToggleTerm size=10 direction=horizontal<CR>",
+	{ noremap = true, silent = true, desc = "horizontal" }
+)
 
 keymap.set("n", "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term" })
 keymap.set("n", "ZAQ", "<cmd>qa!<CR>", { desc = "quit semuanya" })

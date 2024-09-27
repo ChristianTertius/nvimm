@@ -35,7 +35,7 @@ return {
 				float = {
 					enable = true,
 					quit_on_focus_loss = true,
-					open_win_config = get_centered_window_config(90, 35), -- Set to centered position
+					open_win_config = get_centered_window_config(100, 35), -- Set to centered position
 				},
 			},
 			-- changearrow icons
@@ -71,13 +71,14 @@ return {
 			},
 		})
 
-		vim.cmd([[ 
-            augroup NvimTreeTransparent
-            autocmd!
-            autocmd FileType NvimTree highlight NvimTreeNormal guibg=NONE ctermbg=NONE
-            autocmd FileType NvimTree highlight NvimTreeNormalNC guibg=NONE ctermbg=NONE
-            augroup END
-            ]])
+		vim.cmd([[
+		    augroup NvimTreeTransparent
+		    autocmd!
+		    autocmd FileType NvimTree setlocal winblend=10
+		    autocmd FileType NvimTree highlight NvimTreeNormal guibg=NONE ctermbg=NONE
+		    autocmd FileType NvimTree highlight NvimTreeNormalNC guibg=NONE ctermbg=NONE
+		    augroup END
+		  ]])
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness

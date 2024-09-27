@@ -58,13 +58,13 @@ return {
 				})
 
 				-- Menambahkan transparansi pada toggleterm
-				vim.cmd([[ 
-			augroup ToggleTermTransparent
-			autocmd!
-			autocmd TermOpen * highlight Normal guibg=NONE ctermbg=NONE
-			autocmd TermOpen * highlight NonText guibg=NONE ctermbg=NONE
-			augroup END
-		]])
+				vim.cmd([[
+          augroup ToggleTermTransparent
+          autocmd!
+          autocmd TermOpen * highlight Normal guibg=NONE ctermbg=NONE
+          autocmd TermOpen * highlight NonText guibg=NONE ctermbg=NONE
+          augroup END
+        ]])
 			end,
 		}
 	end,
