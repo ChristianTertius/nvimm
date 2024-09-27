@@ -19,7 +19,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlight" })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "increment number" }) -- increment
-keymap.set("n", "<leader>-", "<C-x>", { desc = "decrement number" }) -- increment
+keymap.set("n", "<leader>-", "<C-x>", { desc = "decrement number" }) -- decrement
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "split window vertically" }) -- split window vertically window

@@ -8,12 +8,35 @@ return {
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 
+		-- Function to center floating window
+		local function get_centered_window_config(width, height)
+			local editor_width = vim.api.nvim_get_option("columns")
+			local editor_height = vim.api.nvim_get_option("lines")
+
+			local row = math.floor((editor_height - height) / 2)
+			local col = math.floor((editor_width - width) / 2)
+
+			return {
+				relative = "editor",
+				border = "rounded",
+				width = width,
+				height = height,
+				row = row,
+				col = col,
+			}
+		end
+
 		nvimtree.setup({
 			view = {
 				width = 35,
 				relativenumber = true,
 				number = true,
-				side = "right",
+				-- side = "right",
+				float = {
+					enable = true,
+					quit_on_focus_loss = true,
+					open_win_config = get_centered_window_config(90, 35), -- Set to centered position
+				},
 			},
 			-- changearrow icons
 			renderer = {
@@ -48,7 +71,7 @@ return {
 			},
 		})
 
-		vim.cmd([[
+		vim.cmd([[ 
             augroup NvimTreeTransparent
             autocmd!
             autocmd FileType NvimTree highlight NvimTreeNormal guibg=NONE ctermbg=NONE
