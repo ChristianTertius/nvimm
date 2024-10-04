@@ -85,7 +85,7 @@ return {
 				if server_name == "tsserver" then
 					server_name = "ts_ls"
 				end
-				local capabilities = require("cmp_nvim_lsp").default_capabilities()
+				-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 				require("lspconfig")[server_name].setup({
 					capabilities = capabilities,
 				})
