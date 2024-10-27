@@ -6,6 +6,7 @@ local opts = { noremap = true, silent = true }
 keymap.set("i", "<F2>", "<?= ?> <Left><Left><left>", { noremap = true, silent = true })
 keymap.set("i", "<F3>", "<?php ?> <Left><Left><left>", { noremap = true, silent = true })
 
+keymap.set("n", "<leader>p", "V$%", { desc = "pindah ke atas" })
 keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "pindah ke atas" })
 keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "pindah ke bawah" })
 

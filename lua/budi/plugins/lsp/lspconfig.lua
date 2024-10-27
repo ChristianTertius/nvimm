@@ -83,7 +83,7 @@ return {
 			function(server_name)
 				-- https://github.com/neovim/nvim-lspconfig/pull/3232#issuecomment-2331025714
 				if server_name == "tsserver" then
-					server_name = "ts_ls"
+					server_name = "tsserver"
 				end
 				-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 				require("lspconfig")[server_name].setup({

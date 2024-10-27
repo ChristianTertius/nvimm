@@ -50,7 +50,7 @@ return {
 		    highlight TelescopeResultsBorder guibg=NONE ctermbg=NONE
 		    highlight TelescopePreviewNormal guibg=NONE ctermbg=NONE
 		    highlight TelescopePreviewBorder guibg=NONE ctermbg=NONE
-    ]])
+		  ]])
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
