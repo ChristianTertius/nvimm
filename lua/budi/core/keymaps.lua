@@ -35,6 +35,8 @@ keymap.set("n", "<leader>sv", "<C-w>v", { desc = "split window vertically" }) --
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "split window horizontal" }) -- split window vertically window
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "make splits equal size" }) -- split window vertically window
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "close current split" }) -- close current split window
+-- keymap.set("n", "<leader>st", "<C-w>>", { desc = "increase size window" })
+-- keymap.set("n", "<leader>sb", "<C-w><", { desc = "increase size window" })
 
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
@@ -56,5 +58,22 @@ function FormatParagraph()
 	vim.cmd("normal! =ap")
 	vim.fn.setpos(".", pos)
 end
-
 keymap.set("n", "<leader>ap", ":lua FormatParagraph()<CR>", opts)
+
+local function tambah_window(direction)
+	-- NOTE: vim.v.count1 -> variable bawaan vim utk take number input user, jika tidak ada maka defaultnya 1
+	local count = vim.v.count1
+	if direction == "increase" then
+		vim.cmd(tostring(count) .. "wincmd >")
+	elseif direction == "decrease" then
+		vim.cmd(tostring(count) .. "wincmd <")
+	end
+end
+
+keymap.set("n", "<leader>st", function()
+	tambah_window("increase")
+end, { desc = "increase window" })
+
+keymap.set("n", "<leader>sb", function()
+	tambah_window("decrease")
+end, { desc = "decrease window" })
