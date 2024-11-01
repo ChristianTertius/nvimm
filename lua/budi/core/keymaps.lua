@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+keymap.set("n", "<leader>as", "o<esc>k", { noremap = true, silent = true, desc = "newline for normal mode" })
 keymap.set("i", "<F2>", "<?= ?> <Left><Left><left>", { noremap = true, silent = true })
 keymap.set("i", "<F3>", "<?php ?> <Left><Left><left>", { noremap = true, silent = true })
 
