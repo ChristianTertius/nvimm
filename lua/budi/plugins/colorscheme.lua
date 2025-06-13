@@ -11,6 +11,7 @@ return {
 		local fg_dark = "#B4D0E9"
 		local fg_gutter = "#627E97"
 		local border = "#547998"
+		local comment_fg = "#f5aaba"
 
 		require("tokyonight").setup({
 			style = "night",
@@ -35,9 +36,28 @@ return {
 				colors.fg_float = fg
 				colors.fg_gutter = fg_gutter
 				colors.fg_sidebar = fg_dark
+				colors.comment = comment_fg
 			end,
 		})
 
 		vim.cmd("colorscheme tokyonight")
 	end,
 }
+
+-- return {
+-- 	"rose-pine/neovim",
+-- 	name = "rose-pine",
+-- 	config = function()
+-- 		vim.cmd("colorscheme rose-pine")
+-- 	end,
+-- }
+
+-- return {
+-- 	"craftzdog/solarized-osaka.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		vim.cmd("colorscheme solarized-osaka")
+-- 	end,
+-- }

@@ -3,19 +3,15 @@ return {
 	dependencies = "nvim-tree/nvim-web-devicons",
 	config = function()
 		local nvimtree = require("nvim-tree")
-
 		-- recommended settings from nvim-tree documentation
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
-
 		-- Function to center floating window
 		local function get_centered_window_config(width, height)
 			local editor_width = vim.api.nvim_get_option("columns")
 			local editor_height = vim.api.nvim_get_option("lines")
-
 			local row = math.floor((editor_height - height) / 2)
 			local col = math.floor((editor_width - width) / 2)
-
 			return {
 				relative = "editor",
 				border = "rounded",
@@ -89,7 +85,6 @@ return {
 				ignore = false,
 			},
 		})
-
 		vim.cmd([[
 		    augroup NvimTreeTransparent
 		    autocmd!
@@ -98,10 +93,8 @@ return {
 		    autocmd FileType NvimTree highlight NvimTreeNormalNC guibg=NONE ctermbg=NONE
 		    augroup END
 		  ]])
-
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
-
 		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
 		keymap.set(
 			"n",

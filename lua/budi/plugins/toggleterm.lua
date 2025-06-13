@@ -15,7 +15,7 @@ return {
 			persist_size = true,
 			direction = "horizontal",
 			close_on_exit = true,
-			shell = "pwsh",
+			shell = "powershell.exe",
 			float_opts = {
 				border = "curved",
 				winblend = 20,

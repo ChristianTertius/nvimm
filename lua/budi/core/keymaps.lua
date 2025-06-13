@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+keymap.set("n", "gh", "gg", { silent = true, desc = "go to top" })
 keymap.set("n", "<leader>as", "o<esc>k", { noremap = true, silent = true, desc = "newline for normal mode" })
 keymap.set("i", "<F2>", "<?= ?> <Left><Left><left>", { noremap = true, silent = true })
 keymap.set("i", "<F3>", "<?php ?> <Left><Left><left>", { noremap = true, silent = true })
@@ -19,12 +20,13 @@ keymap.set(
 	":ToggleTerm size=10 direction=horizontal<CR>",
 	{ noremap = true, silent = true, desc = "horizontal" }
 )
-
 keymap.set("n", "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term" })
 keymap.set("n", "ZAQ", "<cmd>qa!<CR>", { desc = "quit semuanya" })
 keymap.set("i", "jk", "<ESC>", { desc = "Keluar dari insert mode" })
 keymap.set("i", "dw", "<C-w>", { desc = "Delete word by double d" })
+keymap.set("i", "db", "<ESC>ldwi", { desc = "Delete word kedepan" })
 keymap.set("i", "<C-s>", "<ESC>:w<CR>", { desc = "Save and go to normal mode" })
+-- keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlight" })
 
 -- increment/decrement numbers
@@ -52,6 +54,8 @@ keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 -- select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
+
+keymap.set("v", "//", [[y/\V<C-r>"<CR>]], { noremap = true, silent = true })
 
 -- Format paragraph and restore cursor position
 function FormatParagraph()
